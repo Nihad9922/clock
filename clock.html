@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+</head>
+<body>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#clock1{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: skyblue;
+		}
+		#clock{
+			font-size: 80px;
+		}
+	</style>
+	<div id="clock1" class="animated bounceInLeft delay-.5s">
+	<div id="clock" class="animated bounceInDown delay-1s"></div>
+	</div>
+
+	<script>
+		setInterval(displayClock, 500);
+		function displayClock() {
+			var time = new Date();
+			var hrs = time.getHours();
+			var min = time.getMinutes();
+			var sec = time.getSeconds()
+			var en = "PM";
+
+			if (sec < 10) {
+				sec = "0" + sec;
+			}
+
+			if (min < 10) {
+				min = "0" + min
+			};
+
+			if (hrs < 10) {
+				hrs = "0" + hrs
+			};
+
+			if (hrs < 12) {
+				en = "AM";
+			}
+
+			if (hrs ==  0) {
+				hrs = 12
+			};
+			document.getElementById("clock").innerHTML = hrs + ":" + min + ":" + sec + " " + en
+		};
+		displayClock();
+	</script>
+</body>
+</html>
